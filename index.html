@@ -3,322 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studiu de Caz: Importanța Utilizării Git & GitHub în Echipă</title>
+    <title>Studiu de Caz - Git & GitHub</title>
+    <!-- Font Google Inter pentru un aspect modern -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
 
-    <!-- Header / Navigație -->
+    <!-- Header & Navigație -->
     <header class="site-header">
         <div class="nav-container">
-            <a href="#" class="logo" aria-label="Pagina de pornire GitHub">
-                <svg height="32" viewBox="0 0 16 16" width="32" fill="currentColor">
-                    <path d="M8 0c4.42 0 8 3.58 8 8a8 8 0 0 1-5.43 7.58c-.4.07-.55-.17-.55-.38 0-.19.01-.82.01-1.49 2.01.37 2.53-.49 2.69-.94.09-.23.48-.94.82-1.13.28-.15.68-.52.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
-                </svg>
+            <a href="#" class="logo">
+                <svg height="24" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="24" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg>
+                <span>Studiu de Caz</span>
             </a>
-
-            <!-- Buton Hamburger Mobil -->
-            <button class="mobile-toggle" aria-label="Deschide meniul">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
+            
             <nav class="nav-content">
                 <ul class="main-nav">
-                    <li class="nav-item">
-                        <button class="nav-link" aria-expanded="false">Product <span class="arrow">▾</span></button>
-                        <div class="dropdown-menu">
-                            <a href="#despre-github" class="dropdown-link">
-                                <strong>Despre GitHub</strong>
-                                <span>Informații despre platformă și utilitatea ei.</span>
-                            </a>
-                            <a href="#ghid-comenzi" class="dropdown-link">
-                                <strong>Ghid Comenzi GitBash</strong>
-                                <span>Instrucțiuni pas cu pas pentru proiect.</span>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <button class="nav-link" aria-expanded="false">Solutions <span class="arrow">▾</span></button>
-                        <div class="dropdown-menu">
-                            <a href="#avantaje" class="dropdown-link">
-                                <strong>Avantaje și Beneficii</strong>
-                                <span>Cum ajută GitHub echipele de dezvoltare.</span>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <button class="nav-link" aria-expanded="false">Resources <span class="arrow">▾</span></button>
-                        <div class="dropdown-menu">
-                            <a href="#resurse-utile" class="dropdown-link">
-                                <strong>Linkuri Documentație</strong>
-                                <span>Referințele oficiale de cercetare.</span>
-                            </a>
-                        </div>
-                    </li>
+                    <li><a href="#introducere-github" class="nav-link">Despre GitHub</a></li>
+                    <li><a href="#puncte-studiu" class="nav-link">Cele 8 Puncte</a></li>
+                    <li><a href="#de-ce-github" class="nav-link">De ce GitHub?</a></li>
                 </ul>
-
-                <div class="auth-buttons">
-                    <a href="https://github.com/login" class="btn-signin" target="_blank" rel="noopener">Sign in</a>
-                    <a href="https://github.com/signup" class="btn-signup" target="_blank" rel="noopener">Sign up</a>
-                </div>
             </nav>
         </div>
     </header>
 
-    <!-- Zona Principală -->
     <main>
+        <!-- Secțiunea Hero -->
         <section class="hero">
-            <h1>Viitorul dezvoltării se construiește împreună</h1>
-            <p>Aplicațiile de management al codului aduc dezvoltatorii și colaborarea pe o singură platformă unificată, securizată și optimizată.</p>
-
-            <form class="hero-form" onsubmit="event.preventDefault();">
-                <input type="email" placeholder="Introdu adresa ta de email" aria-label="Adresa de email" required>
-                <a href="https://github.com/signup" target="_blank" rel="noopener" class="btn-signup btn-hero">Sign up for GitHub</a>
-            </form>
-        </section>
-
-        <!-- Secțiunea 1: Ce este GitHub -->
-        <section id="despre-github" class="container">
-            <div class="section-box">
-                <h2>Ce este GitHub?</h2>
-                <p><strong>GitHub</strong> este cea mai mare platformă din lume bazată pe cloud utilizată pentru stocarea, gestionarea și urmărirea modificărilor aduse codului sursă, folosind sistemul de control al versiunilor <strong>Git</strong>. În timp ce Git rulează local pe calculatorul tău, GitHub oferă un spațiu centralizat online unde programatorii își pot încărca proiectele, pot colabora cu alți dezvoltători și își pot publica aplicațiile pe internet.</p>
-
-                <div class="divider"></div>
-
-                <h2>De ce este important GitHub?</h2>
-                <p>GitHub reprezintă pilonul central al dezvoltării software moderne datorită următoarelor motive:</p>
-                <ul class="styled-list">
-                    <li><strong>Standard global în industrie:</strong> Este utilizat de milioane de dezvoltători și de majoritatea companiilor tehnologice majore din lume.</li>
-                    <li><strong>Portofoliu și CV interactiv:</strong> Profilul public de GitHub demonstrează abilitățile practice ale unui programator mai bine decât un CV tradițional.</li>
-                    <li><strong>Ecosistem Open-Source:</strong> Oferă acces gratuit la sute de mii de proiecte open-source unde oricine poate contribui și învăța.</li>
-                    <li><strong>Siguranța datelor:</strong> Salvează codul în cloud, prevenind pierderea accidentală a muncii în cazul defecțiunilor de hardware local.</li>
-                </ul>
-
-                <div class="divider"></div>
-
-                <h2>Cum să descoperim și să folosim GitHub?</h2>
-                <p>Utilizarea și explorarea GitHub se realizează parcurgând câțiva pași simpli:</p>
-                <ol class="styled-list">
-                    <li><strong>Creează un cont gratuit:</strong> Înregistrează-te pe platforma <a href="https://github.com" target="_blank" rel="noopener">GitHub.com</a>.</li>
-                    <li><strong>Explorează proiecte populare:</strong> Accesează secțiunea <code>github.com/explore</code> pentru a descoperi aplicații în tendințe, tehnologii noi și proiecte open-source.</li>
-                    <li><strong>Creează un Repository (Depozit):</strong> Inițializează un spațiu dedicat pentru proiectul tău, unde vei stoca codul, fișierele și documentația.</li>
-                    <li><strong>Conectează-l cu GitBash:</strong> Folosește terminalul local pentru a sincroniza versiunile de pe calculatorul tău cu serverul GitHub folosind comanda <code>git push</code>.</li>
-                    <li><strong>Publică site-ul tău:</strong> Folosește caracteristica <strong>GitHub Pages</strong> pentru a găzdui gratuit pagini web statice (HTML/CSS/JS) vizibile public pe internet.</li>
-                </ol>
+            <div class="hero-content">
+                <span class="badge">Ghid & Studiu de Caz</span>
+                <h1>Importanța Utilizării Aplicațiilor Git & GitHub în Dezvoltare</h1>
+                <p>Descoperă cum controlul versiunilor și colaborarea în cloud transformă modul în care scriem și gestionăm codul.</p>
             </div>
         </section>
 
-        <!-- Secțiunea 2: Avantajele GitHub -->
-        <section id="avantaje" class="container">
+        <!-- Secțiunea Introducere GitHub -->
+        <section id="introducere-github" class="container">
             <div class="section-box">
-                <h2>Avantajele Cheie ale Utilizării GitHub</h2>
-                <ul class="styled-list">
-                    <li><strong>Controlul Versiunilor (Version Control):</strong> Salvează fiecare etapă a codului, permițând revenirea la o versiune anterioară stabilă în orice moment.</li>
-                    <li><strong>Colaborare fără conflicte (Branching):</strong> Membrii echipei pot lucra simultan pe ramuri separate fără a afecta codul principal (<code>main</code>).</li>
-                    <li><strong>Revizuirea Codului (Pull Requests):</strong> Modificările noi sunt analizate, comentate și aprobate de colegi înainte de a fi integrate în proiect.</li>
-                    <li><strong>Automatizare (GitHub Actions):</strong> Permite testarea, verificarea și lansarea automată a aplicațiilor la fiecare trimitere de cod.</li>
-                    <li><strong>Securitate Integrată:</strong> Scanează automat proiectul pentru depistarea vulnerabilităților de securitate din librăriile utilizate.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Secțiunea 3: Ghid Comenzi GitBash -->
-        <section id="ghid-comenzi" class="container">
-            <div class="section-box">
-                <h2>Ghid de Lucru în Terminalul GitBash</h2>
-                <p>Pentru a încărca fișierele în repository-ul local și cel de pe GitHub, folosiți următoarea secvență de comenzi:</p>
-
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Nr.</th>
-                                <th>Comandă GitBash</th>
-                                <th>Explicație / Rol în Proiect</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td><code>git init</code></td>
-                                <td>Inițializează un repository Git local în dosarul curent al proiectului tău.</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td><code>git add .</code></td>
-                                <td>Adaugă toate fișierele modificate în zona de pregătire (staging area) pentru salvare.</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td><code>git commit -m "Adaugat proiectul studiu de caz complet"</code></td>
-                                <td>Salvează modificările în istoricul local cu un mesaj explicativ.</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td><code>git branch -M main</code></td>
-                                <td>Redenumește ramura implicită de lucru în "main" (standardul GitHub).</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td><code>git remote add origin https://github.com/user/repo.git</code></td>
-                                <td>Conectează folderul tău local cu repository-ul online creat pe contul tău de GitHub.</td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td><code>git push -u origin main</code></td>
-                                <td>Încarcă securizat codul pe serverul GitHub. Ulterior, pagina poate fi hostată public.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- Secțiunea 4: Resurse Utile -->
-        <section id="resurse-utile" class="container">
-            <div class="section-box">
-                <h2>Resurse Utile utilizate în Cercetare</h2>
-                <p>Documentațiile oficiale folosite pentru realizarea acestui studiu de caz sunt detaliate mai jos:</p>
-                <ul class="resource-list">
-                    <li>
-                        <a href="https://docs.github.com/en/get-started" target="_blank" rel="noopener" class="resource-link">GitHub Docs - Get Started Guide</a>
-                        <p>Ghidul oficial introductiv oferit de GitHub. Conține informații esențiale despre configurarea inițială a contului, crearea primului depozit de cod și înțelegerea fluxului standard de lucru (<em>GitHub Flow</em>).</p>
-                    </li>
-                    <li>
-                        <a href="https://www.w3schools.com/git/git_remote_getstarted.asp?remote=github" target="_blank" rel="noopener" class="resource-link">W3Schools Git Remote (Ghid Configurare 1)</a>
-                        <p>Ghid practic axat pe conectarea depozitului local la un server la distanță (<code>git remote add</code>), legarea contului de GitHub și executarea primelor comenzi de sincronizare a codului.</p>
-                    </li>
-                    <li>
-                        <a href="https://www.w3schools.com/git/git_remote_getstarted.asp?remote=github" target="_blank" rel="noopener" class="resource-link">W3Schools Git Remote (Ghid Configurare 2)</a>
-                        <p>Tutorial avansat despre gestionarea ramurilor remote (<em>remote branches</em>), încărcarea versiunilor noi (<code>git push</code>) și preluarea modificărilor făcute de alți membri din echipă (<code>git pull</code>).</p>
-                    </li>
-                    <li>
-                        <a href="https://docs.github.com/en" target="_blank" rel="noopener" class="resource-link">GitHub Documentation Home</a>
-                        <p>Portalul central cu documentația tehnică completă GitHub. Oferă resurse despre securitate, automatizări prin GitHub Actions și bune practici pentru colaborarea în echipe software.</p>
-                    </li>
-                </ul>
-            </div>
-        </section>
-    </main>
-    <!-- Secțiunea Nouă: Concepte Cheie - Cum funcționează -->
-        <section id="cum-functioneaza" class="container">
-            <div class="section-box">
-                <h2>Cum funcționează Git & GitHub? (Concepte Cheie)</h2>
-                <p>Pentru a înțelege arhitectura din spatele platformei, este important să cunoști termenii fundamentali:</p>
-
+                <h2>Ce este GitHub și Cum se Utilizează?</h2>
+                <p class="section-desc"><strong>GitHub</strong> este o platformă cloud utilizată de peste 100 de milioane de dezvoltatori. Funcționează ca un spațiu centralizat unde poți salva codul, istoricul proiectelor și poți colabora facil cu alți programatori.</p>
+                
                 <div class="concept-grid">
                     <div class="concept-card">
                         <div class="concept-icon">📁</div>
-                        <h3>Repository (Depozit)</h3>
-                        <p>Dosarul digital al proiectului tău care conține toate fișierele, istoricul modificărilor și fișierele de configurare.</p>
+                        <h3>Găzduire Cloud</h3>
+                        <p>Păstrează toate fișierele proiectului într-un depozit securizat, accesibil de oriunde.</p>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-icon">📸</div>
-                        <h3>Commit</h3>
-                        <p>O „fotografie” instantanee a stării codului la un anumit moment. Fiecare commit salvează cine, când și ce a modificat.</p>
+                        <div class="concept-icon">👥</div>
+                        <h3>Lucru în Echipă</h3>
+                        <p>Permite programatorilor să lucreze simultan pe funcționalități diferite fără a-și suprascrie munca.</p>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-icon">🌿</div>
-                        <h3>Branch (Ramură)</h3>
-                        <p>O linie paralelă de dezvoltare. Îți permite să lucrezi la opțiuni noi fără a afecta codul stabil din ramura principală (<code>main</code>).</p>
-                    </div>
-
-                    <div class="concept-card">
-                        <div class="concept-icon">🔀</div>
-                        <h3>Pull Request (PR)</h3>
-                        <p>Procesul prin care propui ca modificările din ramura ta să fie verificate și îmbinate (merged) în ramura principală.</p>
-                    </div>
-
-                    <div class="concept-card">
-                        <div class="concept-icon">🍴</div>
-                        <h3>Fork</h3>
-                        <p>O copie personală a repository-ului altcuiva. Îți permite să experimentezi liber fără a schimba proiectul original.</p>
-                    </div>
-
-                    <div class="concept-card">
-                        <div class="concept-icon">🐛</div>
-                        <h3>Issues & Board</h3>
-                        <p>Sistemul de urmărire a sarcinilor, erorilor (bugs) și ideilor noi, organizat adesea sub formă de panouri Kanban.</p>
+                        <div class="concept-icon">🚀</div>
+                        <h3>GitHub Pages</h3>
+                        <p>Găzduiește gratuit site-uri web statice direct din depozitul tău de cod.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Secțiunea Nouă: Cum poți lucra efectiv pe pagină / în proiect -->
-        <section id="lucru-in-echipa" class="container">
+        <!-- Secțiunea Cele 8 Puncte -->
+        <section id="puncte-studiu" class="container">
             <div class="section-box">
-                <h2>Cum se lucrează efectiv pe o pagină / proiect web?</h2>
-                <p>Colaborarea modernă pe un proiect web respectă fluxul standard <strong>GitHub Flow</strong>:</p>
+                <h2>Cele 8 Puncte Cheie ale Ghidului</h2>
 
-                <div class="workflow-steps">
-                    <div class="step-item">
-                        <span class="step-number">1</span>
-                        <div class="step-content">
-                            <h4>Clonarea depozitului local</h4>
-                            <p>Descarci proiectul pe calculator folosind comanda <code>git clone URL_REPOSITORY</code> pentru a lucra în editorul tău de cod (ex: VS Code).</p>
+                <div class="points-grid">
+                    <!-- Punctul 1 -->
+                    <div class="point-item">
+                        <span class="point-number">01</span>
+                        <div>
+                            <h3>Git & Controlul Versiunilor</h3>
+                            <p><strong>Git</strong> este un sistem local ce îți salvează versiunile istorice ale codului. Îți permite să revii la etape anterioare dacă apar erori.</p>
                         </div>
                     </div>
 
-                    <div class="step-item">
-                        <span class="step-number">2</span>
-                        <div class="step-content">
-                            <h4>Crearea unei ramuri noi de lucru</h4>
-                            <p>Nu modifici direct pe <code>main</code>. Creezi o ramură dedicată: <code>git checkout -b redesign-header</code>.</p>
+                    <!-- Punctul 2 -->
+                    <div class="point-item">
+                        <span class="point-number">02</span>
+                        <div>
+                            <h3>GitHub și Repository</h3>
+                            <p>Un <strong>Repository (Depozit)</strong> este folderul digital găzduit în cloud pe GitHub în care sunt păstrate fișierele precum <code>index.html</code> și <code>style.css</code>.</p>
                         </div>
                     </div>
 
-                    <div class="step-item">
-                        <span class="step-number">3</span>
-                        <div class="step-content">
-                            <h4>Modificarea codului și Salvarea (Commit)</h4>
-                            <p>Editezi fișierele HTML/CSS/JS, verifici rezultatul în browser, apoi salvezi etapele prin <code>git add .</code> și <code>git commit -m "Mesaj"</code>.</p>
+                    <!-- Punctul 3 -->
+                    <div class="point-item">
+                        <span class="point-number">03</span>
+                        <div>
+                            <h3>Commit, Branch & Remote</h3>
+                            <p><strong>Commit</strong> = salvare/instantanee. <strong>Main Branch</strong> = ramura principală. <strong>Remote</strong> = depozitul online de pe serverele GitHub.</p>
                         </div>
                     </div>
 
-                    <div class="step-item">
-                        <span class="step-number">4</span>
-                        <div class="step-content">
-                            <h4>Trimiterea modificărilor și Deschiderea unui Pull Request</h4>
-                            <p>Upei ramura pe server (<code>git push origin redesign-header</code>) și deschizi un <strong>Pull Request</strong> pe interfața web GitHub.</p>
+                    <!-- Punctul 4 -->
+                    <div class="point-item">
+                        <span class="point-number">04</span>
+                        <div>
+                            <h3>Comenzi Utile în Terminal</h3>
+                            <div class="code-block">
+                                <code>git init</code>
+                                <code>git add .</code>
+                                <code>git commit -m "Mesaj"</code>
+                                <code>git push -u origin main</code>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="step-item">
-                        <span class="step-number">5</span>
-                        <div class="step-content">
-                            <h4>Review, Discuții și Imbinare (Merge)</h4>
-                            <p>Colegii adaugă comentarii direct pe liniile de cod, propun optimizări, iar după aprobare se apasă butonul <strong>Merge Pull Request</strong>.</p>
+                    <!-- Punctul 5 -->
+                    <div class="point-item">
+                        <span class="point-number">05</span>
+                        <div>
+                            <h3>Structura index.html</h3>
+                            <p>Pagina principală este denumită <code>index.html</code>. Este punctul de intrare căutat automat de serverele web la accesarea domeniului.</p>
+                        </div>
+                    </div>
+
+                    <!-- Punctul 6 -->
+                    <div class="point-item">
+                        <span class="point-number">06</span>
+                        <div>
+                            <h3>Găzduire prin GitHub Pages</h3>
+                            <p>Serviciu gratuit ce îți publică fișierele HTML/CSS pe internet. Se activează din <code>Settings</code> > <code>Pages</code> alegând ramura <code>main</code>.</p>
+                        </div>
+                    </div>
+
+                    <!-- Punctul 7 -->
+                    <div class="point-item">
+                        <span class="point-number">07</span>
+                        <div>
+                            <h3>Drepturi de Acces & Colaboratori</h3>
+                            <p>Proiectele pot fi vizibile doar ție (<em>Private</em>) sau tuturor (<em>Public</em>). Poți adăuga colegi din <code>Settings</code> > <code>Collaborators</code>.</p>
+                        </div>
+                    </div>
+
+                    <!-- Punctul 8 -->
+                    <div class="point-item">
+                        <span class="point-number">08</span>
+                        <div>
+                            <h3>Organizare cu Issues & Tasks</h3>
+                            <p>Folosește secțiunea <strong>Issues</strong> pentru a lista sarcini de făcut, idei noi sau erori de reparat în mod organizat.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="divider"></div>
-
-                <h3>Instrumente de interacțiune directă pe interfața GitHub</h3>
-                <ul class="styled-list">
-                    <li><strong>GitHub Web Editor (Tasta <code>.</code>):</strong> Apăsând tasta punct într-un depozit pe GitHub, se deschide un editor VS Code direct în browser pentru modificări rapide.</li>
-                    <li><strong>GitHub Pages:</strong> Găzduiește gratuit site-ul tău static, generând un link public direct din depozit.</li>
-                    <li><strong>Discussions & Code Reviews:</strong> Spațiu de dezbatere unde se pot lăsa reacții cu emoji-uri, sugestii de cod editabile direct și aprobări formale.</li>
-                </ul>
             </div>
         </section>
 
-    <!-- Subsol Pagina -->
-    <footer>
-        <ul class="footer-links">
-            <li><a href="#despre-github">Studiu de Caz</a></li>
-            <li><a href="#ghid-comenzi">Ghid GitBash</a></li>
-            <li><a href="#resurse-utile">Resurse Utile</a></li>
-        </ul>
-        <p class="footer-copy">&copy; 2026 Proiect Academic — Studiu de Caz GitHub. Toate drepturile rezervate.</p>
-    </footer>
+        <!-- Secțiunea De ce este GitHub atât de popular? -->
+        <section id="de-ce-github" class="container">
+            <div class="section-box">
+                <h2>De ce folosesc oamenii GitHub cel mai des?</h2>
+                <p class="section-desc">GitHub nu este doar un loc de stocat cod, ci standardul industriei IT pentru dezvoltare software și lucru în echipă. Iată principalele motive pentru care milioanele de developeri îl aleg zilnic:</p>
 
-    
+                <div class="reasons-grid">
+                    <div class="reason-card">
+                        <span class="reason-icon">🌍</span>
+                        <h3>Standardul Industriei & Comunitate</h3>
+                        <p>Fiind cea mai mare platformă din lume, majoritatea proiectelor open-source se află pe GitHub. Profilul tău funcționează ca un CV real în IT.</p>
+                    </div>
+
+                    <div class="reason-card">
+                        <span class="reason-icon">🛡️</span>
+                        <h3>Siguranța Codului & "Undo" Global</h3>
+                        <p>Nimic nu se pierde definitiv. Fiecare linie de cod este salvată în istoric, permițând oricând revenirea la o versiune funcțională.</p>
+                    </div>
+
+                    <div class="reason-card">
+                        <span class="reason-icon">🔄</span>
+                        <h3>Revizuire și Colaborare</h3>
+                        <p>Prin <strong>Pull Requests</strong>, colegii de echipă pot verifica codul tău și pot lăsa sugestii înainte de integrarea în proiectul final.</p>
+                    </div>
+
+                    <div class="reason-card">
+                        <span class="reason-icon">⚡</span>
+                        <h3>Automatizare cu GitHub Actions</h3>
+                        <p>Permite testarea și lansarea automată a proiectului pe servere la fiecare actualizare de cod, economisind timp.</p>
+                    </div>
+
+                    <div class="reason-card">
+                        <span class="reason-icon">🤖</span>
+                        <h3>Integrare cu AI</h3>
+                        <p>Sistemele moderne asistate de AI (cum ar fi Copilot) ajută dezvoltatorii să scrie cod mai rapid și să rezolve erori pe loc.</p>
+                    </div>
+
+                    <div class="reason-card">
+                        <span class="reason-icon">💼</span>
+                        <h3>Management de Proiecte</h3>
+                        <p>Echipele pot folosi kanban board-uri, tag-uri și instrumentul <strong>Issues</strong> pentru a-și gestiona sarcinile gratuit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Studiu de Caz — Importanța Utilizării Aplicațiilor Git & GitHub</p>
+    </footer>
 
 </body>
 </html>

@@ -1,625 +1,267 @@
-    :root {
-    --bg-main: #0d1117;
-    --bg-header: rgba(22, 27, 34, 0.85);
-    --bg-card: #161b22;
-    --bg-hover: #21262d;
-    --border-color: #30363d;
-    --border-subtle: #21262d;
-    --text-primary: #f0f6fc;
-    --text-secondary: #c9d1d9;
-    --text-muted: #8b949e;
-    --accent-blue: #2f81f7;
-    --accent-blue-hover: #58a6ff;
-    --accent-green: #238636;
-    --accent-green-hover: #2ea44f;
-    --code-color: #ff7b72;
-    --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-}
-
+/* Reset și setări generale */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 90px;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: var(--font-stack);
-    background-color: var(--bg-main);
-    color: var(--text-secondary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #0d1117; /* Fundal dark inspirat din GitHub */
+    color: #c9d1d9;
     line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
 }
 
 /* Header & Navigație */
 .site-header {
-    background-color: var(--bg-header);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-color);
-    position: fixed;
+    background-color: #161b22;
+    border-bottom: 1px solid #30363d;
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
+    z-index: 100;
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 14px 24px;
+    align-items: center;
+    padding: 1rem 2rem;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    color: var(--text-primary);
+    gap: 10px;
+    color: #f0f6fc;
     text-decoration: none;
-    transition: opacity 0.2s ease;
-}
-
-.logo:hover {
-    opacity: 0.75;
-}
-
-/* Nav Menu Desktop */
-.nav-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-grow: 1;
-    margin-left: 24px;
+    font-weight: 700;
+    font-size: 1.1rem;
 }
 
 .main-nav {
     display: flex;
     list-style: none;
-    gap: 8px;
-}
-
-.nav-item {
-    position: relative;
+    gap: 20px;
 }
 
 .nav-link {
-    background: none;
-    border: none;
-    color: var(--text-primary);
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 8px 12px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    border-radius: 6px;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.nav-link:hover, .nav-item:hover > .nav-link {
-    color: var(--accent-blue-hover);
-    background-color: var(--bg-hover);
-}
-
-.arrow {
-    font-size: 10px;
-    color: var(--text-muted);
-    transition: transform 0.2s ease;
-}
-
-.nav-item:hover .arrow, .nav-item.active .arrow {
-    transform: rotate(180deg);
-}
-
-/* Dropdown Menu */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 10px;
-    min-width: 280px;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
-    margin-top: 6px;
-    z-index: 1100;
-}
-
-.nav-item:hover .dropdown-menu,
-.dropdown-menu.active {
-    display: block;
-    animation: fadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-6px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.dropdown-link {
-    display: block;
-    padding: 10px 12px;
-    color: var(--text-muted);
+    color: #8b949e;
     text-decoration: none;
-    font-size: 13px;
-    border-radius: 6px;
-    transition: background-color 0.15s, color 0.15s;
-}
-
-.dropdown-link strong {
-    color: var(--text-primary);
-    display: block;
-    font-size: 14px;
-    margin-bottom: 2px;
-}
-
-.dropdown-link span {
-    display: block;
-    line-height: 1.4;
-}
-
-.dropdown-link:hover {
-    background-color: var(--bg-hover);
-    color: var(--text-primary);
-}
-
-.dropdown-link:hover strong {
-    color: var(--accent-blue-hover);
-}
-
-/* Auth Buttons */
-.auth-buttons {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
-
-.btn-signin {
-    color: var(--text-primary);
-    text-decoration: none;
-    font-size: 14px;
     font-weight: 500;
-    padding: 6px 12px;
     transition: color 0.2s;
 }
 
-.btn-signin:hover {
-    color: var(--text-muted);
+.nav-link:hover {
+    color: #58a6ff;
 }
 
-.btn-signup {
-    color: #ffffff;
-    background-color: var(--accent-green);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 7px 14px;
-    border-radius: 6px;
-    border: 1px solid rgba(240, 246, 252, 0.1);
-    transition: background-color 0.2s;
-    white-space: nowrap;
-}
-
-.btn-signup:hover {
-    background-color: var(--accent-green-hover);
-}
-
-/* Hamburger Mobil */
-.mobile-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 28px;
-    height: 24px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-}
-
-.mobile-toggle span {
-    width: 100%;
-    height: 2px;
-    background-color: var(--text-primary);
-    border-radius: 2px;
-}
-
-/* Hero Section */
+/* Secțiunea Hero */
 .hero {
-    max-width: 1100px;
-    margin: 130px auto 50px auto;
-    padding: 0 24px;
+    background: linear-gradient(180deg, #161b22 0%, #0d1117 100%);
     text-align: center;
+    padding: 4rem 2rem;
+    border-bottom: 1px solid #30363d;
 }
 
-.hero h1 {
-    font-size: clamp(32px, 5vw, 54px);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, #7af2a5 0%, #2f81f7 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero p {
-    font-size: clamp(16px, 2.5vw, 20px);
-    color: var(--text-muted);
-    max-width: 760px;
-    margin: 0 auto 36px auto;
-}
-
-.hero-form {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    max-width: 480px;
+.hero-content {
+    max-width: 800px;
     margin: 0 auto;
 }
 
-.hero-form input {
-    flex: 1;
-    padding: 12px 16px;
-    background-color: var(--bg-main);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    color: var(--text-primary);
-    font-size: 15px;
-    transition: border-color 0.2s, box-shadow 0.2s;
+.badge {
+    background-color: rgba(56, 139, 253, 0.15);
+    color: #58a6ff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(56, 139, 253, 0.4);
 }
 
-.hero-form input:focus {
-    border-color: var(--accent-blue);
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(47, 129, 247, 0.25);
+.hero h1 {
+    color: #f0f6fc;
+    font-size: 2.3rem;
+    margin: 1.2rem 0 0.8rem;
+    line-height: 1.25;
 }
 
-.btn-hero {
-    padding: 12px 20px;
-    font-size: 15px;
+.hero p {
+    color: #8b949e;
+    font-size: 1.1rem;
 }
 
-/* Secțiuni de Conținut */
+/* Conținut Principal */
 .container {
-    max-width: 1000px;
-    margin: 24px auto;
-    padding: 0 24px;
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
 }
 
 .section-box {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
+    background-color: #161b22;
+    border: 1px solid #30363d;
     border-radius: 12px;
-    padding: 36px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 2.5rem;
 }
 
-h2 {
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 16px;
-    color: var(--text-primary);
+.section-box h2 {
+    color: #f0f6fc;
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
 }
 
-p {
-    margin-bottom: 16px;
-    color: var(--text-secondary);
+.section-desc {
+    color: #8b949e;
+    margin-bottom: 2rem;
 }
 
-.divider {
-    height: 1px;
-    background-color: var(--border-subtle);
-    margin: 30px 0;
+/* Grid Carduri Concept */
+.concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
 }
 
-/* Liste */
-.styled-list {
-    padding-left: 20px;
-    margin-bottom: 20px;
-}
-
-.styled-list li {
-    margin-bottom: 10px;
-    color: var(--text-secondary);
-}
-
-.styled-list a {
-    color: var(--accent-blue-hover);
-    text-decoration: none;
-}
-
-.styled-list a:hover {
-    text-decoration: underline;
-}
-
-/* Cod */
-code {
-    background-color: var(--bg-hover);
-    padding: 3px 7px;
-    border-radius: 6px;
-    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace;
-    color: var(--code-color);
-    font-size: 13px;
-    border: 1px solid rgba(240, 246, 252, 0.1);
-}
-
-/* Tabel */
-.table-wrapper {
-    overflow-x: auto;
-    margin-top: 20px;
-    border: 1px solid var(--border-color);
+.concept-card {
+    background-color: #0d1117;
+    border: 1px solid #30363d;
     border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.2s, border-color 0.2s;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-    text-align: left;
+.concept-card:hover {
+    transform: translateY(-4px);
+    border-color: #58a6ff;
 }
 
-th, td {
-    padding: 14px 16px;
-    border-bottom: 1px solid var(--border-color);
+.concept-icon {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
 }
 
-th {
-    background-color: var(--bg-hover);
-    color: var(--text-primary);
-    font-weight: 600;
+.concept-card h3 {
+    color: #f0f6fc;
+    margin-bottom: 0.5rem;
 }
 
-tr:last-child td {
-    border-bottom: none;
+.concept-card p {
+    font-size: 0.95rem;
+    color: #8b949e;
 }
 
-tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.015);
+/* Grid Puncte Cheie */
+.points-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
-/* Resurse */
-.resource-list {
-    list-style: none;
+.point-item {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
+    gap: 1.2rem;
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 1.5rem;
 }
 
-.resource-link {
-    color: var(--accent-blue-hover);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    display: inline-block;
-    margin-bottom: 4px;
+.point-number {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #58a6ff;
+    background-color: rgba(56, 139, 253, 0.1);
+    height: 40px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
 }
 
-.resource-link:hover {
-    text-decoration: underline;
+.point-item h3 {
+    color: #f0f6fc;
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
 }
 
-.resource-list p {
-    margin-bottom: 0;
-    font-size: 14px;
-    color: var(--text-muted);
+.point-item p {
+    font-size: 0.92rem;
+    color: #8b949e;
+}
+
+/* Blocuri de cod */
+.code-block {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.code-block code {
+    display: block;
+    font-family: monospace;
+    color: #7ee787;
+    font-size: 0.88rem;
+}
+
+code {
+    background-color: rgba(110, 118, 129, 0.2);
+    color: #f0f6fc;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.88rem;
+}
+
+/* Grid Motive GitHub (De ce este popular) */
+.reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.reason-card {
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.reason-card:hover {
+    border-color: #58a6ff;
+    transform: translateY(-3px);
+}
+
+.reason-icon {
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.reason-card h3 {
+    color: #f0f6fc;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.reason-card p {
+    color: #8b949e;
+    font-size: 0.92rem;
+    line-height: 1.5;
 }
 
 /* Footer */
 footer {
-    border-top: 1px solid var(--border-color);
-    padding: 40px 24px;
     text-align: center;
-    background-color: var(--bg-main);
-    margin-top: 80px;
+    padding: 2rem;
+    border-top: 1px solid #30363d;
+    color: #8b949e;
+    font-size: 0.9rem;
 }
 
-.footer-links {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-}
-
-.footer-links a {
-    color: var(--accent-blue-hover);
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-}
-
-.footer-copy {
-    color: var(--text-muted);
-    font-size: 13px;
-}
-
-/* Adaptare Mobil */
-@media (max-width: 868px) {
-    .mobile-toggle {
-        display: flex;
-    }
-
-    .nav-content {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--bg-card);
-        border-bottom: 1px solid var(--border-color);
-        flex-direction: column;
-        align-items: stretch;
-        padding: 20px 24px;
-        margin-left: 0;
-        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
-    }
-
-    .nav-content.active {
-        display: flex;
-    }
-
-    .main-nav {
-        flex-direction: column;
-        gap: 8px;
-        width: 100%;
-    }
-
-    .nav-link {
-        justify-content: space-between;
-        width: 100%;
-        padding: 10px 12px;
-    }
-
-    .dropdown-menu {
-        position: static;
-        box-shadow: none;
-        border: none;
-        background-color: rgba(0, 0, 0, 0.2);
-        margin-top: 4px;
-        margin-bottom: 8px;
-        padding: 8px;
-    }
-
-    .auth-buttons {
-        flex-direction: column;
-        width: 100%;
-        margin-top: 16px;
-        padding-top: 16px;
-        border-top: 1px solid var(--border-color);
-    }
-
-    .btn-signin, .btn-signup {
-        width: 100%;
-        text-align: center;
-    }
-
-    .hero-form {
-        flex-direction: column;
-    }
-
-    .section-box {
-        padding: 24px;
-    }
-}
-
-<!-- Secțiunea Nouă: Concepte Cheie - Cum funcționează -->
-        <section id="cum-functioneaza" class="container">
-            <div class="section-box">
-                <h2>Cum funcționează Git & GitHub? (Concepte Cheie)</h2>
-                <p>Pentru a înțelege arhitectura din spatele platformei, este important să cunoști termenii fundamentali:</p>
-
-                <div class="concept-grid">
-                    <div class="concept-card">
-                        <div class="concept-icon">📁</div>
-                        <h3>Repository (Depozit)</h3>
-                        <p>Dosarul digital al proiectului tău care conține toate fișierele, istoricul modificărilor și fișierele de configurare.</p>
-                    </div>
-
-                    <div class="concept-card">
-                        <div class="concept-icon">📸</div>
-                        <h3>Commit</h3>
-                        <p>O „fotografie” instantanee a stării codului la un anumit moment. Fiecare commit salvează cine, când și ce a modificat.</p>
-                    </div>
-
-                    <div class="concept-card">
-                        <div class="concept-icon">🌿</div>
-                        <h3>Branch (Ramură)</h3>
-                        <p>O linie paralelă de dezvoltare. Îți permite să lucrezi la opțiuni noi fără a afecta codul stabil din ramura principală (<code>main</code>).</p>
-                    </div>
-
-                    <div class="concept-card">
-                        <div class="concept-icon">🔀</div>
-                        <h3>Pull Request (PR)</h3>
-                        <p>Procesul prin care propui ca modificările din ramura ta să fie verificate și îmbinate (merged) în ramura principală.</p>
-                    </div>
-
-                    <div class="concept-card">
-                        <div class="concept-icon">🍴</div>
-                        <h3>Fork</h3>
-                        <p>O copie personală a repository-ului altcuiva. Îți permite să experimentezi liber fără a schimba proiectul original.</p>
-                    </div>
-
-                    <div class="concept-card">
-                        <div class="concept-icon">🐛</div>
-                        <h3>Issues & Board</h3>
-                        <p>Sistemul de urmărire a sarcinilor, erorilor (bugs) și ideilor noi, organizat adesea sub formă de panouri Kanban.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Secțiunea Nouă: Cum poți lucra efectiv pe pagină / în proiect -->
-        <section id="lucru-in-echipa" class="container">
-            <div class="section-box">
-                <h2>Cum se lucrează efectiv pe o pagină / proiect web?</h2>
-                <p>Colaborarea modernă pe un proiect web respectă fluxul standard <strong>GitHub Flow</strong>:</p>
-
-                <div class="workflow-steps">
-                    <div class="step-item">
-                        <span class="step-number">1</span>
-                        <div class="step-content">
-                            <h4>Clonarea depozitului local</h4>
-                            <p>Descarci proiectul pe calculator folosind comanda <code>git clone URL_REPOSITORY</code> pentru a lucra în editorul tău de cod (ex: VS Code).</p>
-                        </div>
-                    </div>
-
-                    <div class="step-item">
-                        <span class="step-number">2</span>
-                        <div class="step-content">
-                            <h4>Crearea unei ramuri noi de lucru</h4>
-                            <p>Nu modifici direct pe <code>main</code>. Creezi o ramură dedicată: <code>git checkout -b redesign-header</code>.</p>
-                        </div>
-                    </div>
-
-                    <div class="step-item">
-                        <span class="step-number">3</span>
-                        <div class="step-content">
-                            <h4>Modificarea codului și Salvarea (Commit)</h4>
-                            <p>Editezi fișierele HTML/CSS/JS, verifici rezultatul în browser, apoi salvezi etapele prin <code>git add .</code> și <code>git commit -m "Mesaj"</code>.</p>
-                        </div>
-                    </div>
-
-                    <div class="step-item">
-                        <span class="step-number">4</span>
-                        <div class="step-content">
-                            <h4>Trimiterea modificărilor și Deschiderea unui Pull Request</h4>
-                            <p>Upei ramura pe server (<code>git push origin redesign-header</code>) și deschizi un <strong>Pull Request</strong> pe interfața web GitHub.</p>
-                        </div>
-                    </div>
-
-                    <div class="step-item">
-                        <span class="step-number">5</span>
-                        <div class="step-content">
-                            <h4>Review, Discuții și Imbinare (Merge)</h4>
-                            <p>Colegii adaugă comentarii direct pe liniile de cod, propun optimizări, iar după aprobare se apasă butonul <strong>Merge Pull Request</strong>.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="divider"></div>
-
-                <h3>Instrumente de interacțiune directă pe interfața GitHub</h3>
-                <ul class="styled-list">
-                    <li><strong>GitHub Web Editor (Tasta <code>.</code>):</strong> Apăsând tasta punct într-un depozit pe GitHub, se deschide un editor VS Code direct în browser pentru modificări rapide.</li>
-                    <li><strong>GitHub Pages:</strong> Găzduiește gratuit site-ul tău static, generând un link public direct din depozit.</li>
-                    <li><strong>Discussions & Code Reviews:</strong> Spațiu de dezbatere unde se pot lăsa reacții cu emoji-uri, sugestii de cod editabile direct și aprobări formale.</li>
-                </ul>
-            </div>
-        </section>
-
-
-        
